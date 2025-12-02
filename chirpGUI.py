@@ -9,7 +9,8 @@ import os
 st.markdown(
     """
     <style>
-        /* Keyframe animation */
+
+        /* -------------------- ANIMATION -------------------- */
         @keyframes slideIn {
             0% {
                 opacity: 0;
@@ -21,15 +22,15 @@ st.markdown(
             }
         }
 
-        /* Apply to elements */
         .slide-in {
+            opacity: 0;
             animation: slideIn 0.8s ease-out forwards;
         }
 
-        /* Slight delay */
         .delay-1 { animation-delay: 0.2s; }
 
-        /* Image center */
+
+        /* -------------------- CENTERING -------------------- */
         .centered-img-container {
             display: flex;
             justify-content: center;
@@ -37,11 +38,29 @@ st.markdown(
             flex-direction: column;
             text-align: center;
         }
+
+
+        /* -------------------- IMAGE CARD STYLE -------------------- */
+        .image-card {
+            background-color: #1e1e1e;
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .image-caption {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # Run model based on audio (PLACEHOLDER)
 def run_model(audio_path):
@@ -72,42 +91,20 @@ st.markdown(
 # Image + description
 col1, col2 = st.columns([1, 2])
 
-st.markdown("""
-<style>
+with col1:
+    st.markdown('<div class="image-card slide-in delay-1 centered-img-container">', unsafe_allow_html=True)
 
-.slide-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideIn 0.8s ease-out forwards;
-}
-.delay-1 { animation-delay: 0.2s; }
+    st.image(
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wRB27czFMbCL-3lwgoVrbSkHBPEQ0YOVf-Bok-47ZdKAuoWeW66751tM7CpusEV7SgqXIshnSA8gcbGQNThIl0P2GCGzuigWe3Bo7w&s=10",
+        use_container_width=True
+    )
 
-@keyframes slideIn {
-    to { opacity: 1; transform: translateY(0); }
-}
+    st.markdown(
+        '<div class="image-caption">Piping plover – a bird often seen at Presque Isle State Park</div>',
+        unsafe_allow_html=True
+    )
 
-/* Centered image card */
-.image-card {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 14px;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Make Streamlit caption look nicer */
-.image-card .caption {
-    color: #cccccc;
-    font-size: 0.9rem;
-    margin-top: 8px;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
