@@ -26,11 +26,17 @@ st.markdown(
             animation: slideIn 0.8s ease-out forwards;
         }
 
-        /* Slight delay options */
+        /* Slight delay */
         .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
+
+        /* Image center */
+        .centered-img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
     </style>
     """,
     unsafe_allow_html=True
@@ -66,16 +72,14 @@ st.markdown(
 # Image + description
 col1, col2 = st.columns([1, 2])
 
-with col1:
-    st.markdown('<div class="slide-in delay-2">', unsafe_allow_html=True)
-    st.image(
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wRB27czFMbCL-3lwgoVrbSkHBPEQ0YOVf-Bok-47ZdKAuoWeW66751tM7CpusEV7SgqXIshnSA8gcbGQNThIl0P2GCGzuigWe3Bo7w&s=10",
-        caption="Piping plover - a bird often seen at Presque Isle State Park",
-        use_container_width=True
-    )
+with st.container():
+    st.markdown('<div class="centered-img-container">', unsafe_allow_html=True)
+    st.image("piping_plover.jpg", use_container_width=False, width=350)
+    st.caption("Piping plover – a bird often seen at Presque Isle State Park")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="slide-in delay-3">', unsafe_allow_html=True)
+    st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
     st.markdown(
         """
         ### About This Project
@@ -92,7 +96,7 @@ with col2:
 st.write("---")
 
 # File upload
-st.markdown('<div class="slide-in delay-4">', unsafe_allow_html=True)
+st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
 uploaded_file = st.file_uploader("Upload a bird chirp audio file", type=["wav", "mp3", "ogg", "flac"])
 st.markdown('</div>', unsafe_allow_html=True)
 
