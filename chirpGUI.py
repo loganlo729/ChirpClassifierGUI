@@ -56,7 +56,7 @@ def run_model(audio_path):
 st.markdown(
     """
     <div class="slide-in delay-1" style="text-align:center;">
-        <h1>🐦 Chirp Classifier</h1>
+        <h1>Chirp Classifier</h1>
         <h3>Identify bird species from short audio recordings</h3>
     </div>
     """,
@@ -85,7 +85,7 @@ with col2:
         *Upload an audio file (WAV, MP3, OGG, FLAC)*  
         The model will extract spectrogram features from the file, and
         then predict the top 5 matching bird species. The results are 
-        listed with probability scores
+        listed with probability scores.
         """
     )
 
