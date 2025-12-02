@@ -72,13 +72,42 @@ st.markdown(
 # Image + description
 col1, col2 = st.columns([1, 2])
 
-with col1:
-    st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
-    st.image(
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wRB27czFMbCL-3lwgoVrbSkHBPEQ0YOVf-Bok-47ZdKAuoWeW66751tM7CpusEV7SgqXIshnSA8gcbGQNThIl0P2GCGzuigWe3Bo7w&s=10",
-        caption="Piping plover - a bird often seen at Presque Isle State Park",
-        use_container_width=True
-    )
+st.markdown("""
+<style>
+
+.slide-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Centered image card */
+.image-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Make Streamlit caption look nicer */
+.image-card .caption {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 
 with col2:
     st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
