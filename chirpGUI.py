@@ -72,11 +72,13 @@ st.markdown(
 # Image + description
 col1, col2 = st.columns([1, 2])
 
-with st.container():
-    st.markdown('<div class="centered-img-container">', unsafe_allow_html=True)
-    st.image("piping_plover.jpg", use_container_width=False, width=350)
-    st.caption("Piping plover – a bird often seen at Presque Isle State Park")
-    st.markdown('</div>', unsafe_allow_html=True)
+with col1:
+    st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
+    st.image(
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wRB27czFMbCL-3lwgoVrbSkHBPEQ0YOVf-Bok-47ZdKAuoWeW66751tM7CpusEV7SgqXIshnSA8gcbGQNThIl0P2GCGzuigWe3Bo7w&s=10",
+        caption="Piping plover - a bird often seen at Presque Isle State Park",
+        use_container_width=True
+    )
 
 with col2:
     st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
