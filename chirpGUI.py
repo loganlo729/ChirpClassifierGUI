@@ -42,21 +42,22 @@ st.markdown(
 
         /* -------------------- IMAGE CARD STYLE -------------------- */
         .image-card {
-            background-color: #1e1e1e;
-            padding: 18px;
+            background-color: #1a1a1a;
+            padding: 0;
             border-radius: 14px;
-            box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-            margin-top: 10px;
-            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            margin: 0;   
         }
-
+        .image-card-inner {
+            padding: 14px;
+        }
         .image-caption {
             color: #cccccc;
             font-size: 0.9rem;
-            margin-top: 8px;
+            padding: 10px 0 14px 0;
             text-align: center;
         }
-
     </style>
     """,
     unsafe_allow_html=True
@@ -92,19 +93,20 @@ st.markdown(
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    st.markdown('<div class="image-card slide-in delay-1 centered-img-container">', unsafe_allow_html=True)
-
+    st.markdown(
+        '<div class="image-card slide-in delay-1 centered-img-container">',
+        unsafe_allow_html=True
+    )
+    st.markdown('<div class="image-card-inner">', unsafe_allow_html=True)
     st.image(
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wRB27czFMbCL-3lwgoVrbSkHBPEQ0YOVf-Bok-47ZdKAuoWeW66751tM7CpusEV7SgqXIshnSA8gcbGQNThIl0P2GCGzuigWe3Bo7w&s=10",
         use_container_width=True
     )
-
     st.markdown(
         '<div class="image-caption">Piping plover – a bird often seen at Presque Isle State Park</div>',
         unsafe_allow_html=True
     )
-
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div></div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="slide-in delay-1">', unsafe_allow_html=True)
